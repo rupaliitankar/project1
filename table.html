@@ -1,68 +1,82 @@
-<h1 id="counter">counter</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form</title>
+        <style type="text/css">
+            .bg{
+                width: 1000px;
+                height: 500px;
+                font-size: 22px;
+                padding: 2px;
+                background:url("jit.jpg")no-repeat;
+                background-position: center;
+                background-size: cover;
+                border: 2px;
+            }
 
+        </style>
 
-<button onclick="getData()">getData</button>
-<table border="2px">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Avatar</th>
-        </tr>
-    </thead>
-    <tbody id="records">
-        <tr>
-            <td>ID</td>
-            <td>Email</td>
-            <td>First Name</td>
-            <th>Last Name</th>
-            <th>Avatar</th>
-        </tr>
-    </tbody>
-</table>
-<div id="result"></div>
+    </head>
+    <body>
+        <!-- <form action="">
+            <label for="">FirstName: </label><input type="text">
+            <br/>
+            <br/>
+            <label for="">LastName: </label><input type="text">
+            <br/>
+            <br/>
+            <label for="">contact: </label><input type="text">
 
-<script>
-    cnt=0
+            
+        </form> -->
+        <center>
+            <form action="" method="post">
+                <table class="bg">
+                    <tr>
+                        <th colspan="2px">Registration form</th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>Surname</th>
+                        <td><input type="text"></td>
 
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><input type="email"></td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>
+                            <input type="radio" name="Gender">Male
+                            <input type="radio" name="Gender">Female
+        
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Hobies</th>
+                        <td>
+                            <input type="checkbox">Drawing
+                            <br/>
+                            <input type="checkbox">Dancing
+                            <br/>
+                            <input type="checkbox">Singing
+                            <br/>
+                            <input type="checkbox">Swimming
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="1px"></th>
+                        <td>
+                            <button><a href="logout.html"></a>SUBMIT</button>
 
-setInterval( () => {
-    document.getElementById("counter").innerHTML=cnt++
-}, 1000)
-
-function getData()
-{
-    url=`https://reqres.in/api/users?page=1`
-     fetch(url)
-     .then(res => res.json())//then is promises because . is come here and res for response
-     .then(result =>
-     {
-        console.log(result)
-        console.log(result['data'])
-        console.table(result['data'])
-        console.log(result['data'][0]['email'])
-
-        output=''
-        for(let i=0;i<6;i++)
-        {
-            output +=`<tr>
-                <td>${result['data'][i]['id']}</td>
-               <td>${result['data'][i]['email']}</td>
-               <td>${result['data'][i]['first_name']}</td>
-               <td>${result['data'][i]['last_name']}</td>
-               <td><img src="${result['data'][i]['avatar']}"/"></td>
-        </tr>`
-
-
-        }
-
-
-        document.getElementById("records").innerHTML=output
-     })
-
-}
-
-
-</script>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </body>
+</html>
